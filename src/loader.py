@@ -1,15 +1,30 @@
 from langchain_community.document_loaders import PyPDFLoader
+import os
 
-pdf_path = "uploads/cyber.pdf"
+UPLOAD_FOLDER = "uploads"
 
-print("Loading PDF...")
+def load_documents():
 
-loader = PyPDFLoader(pdf_path)
+    docs = []
 
-docs = loader.load()
+    for file in os.listdir(UPLOAD_FOLDER):
 
-print("Pages loaded:", len(docs))
+        if file.endswith(".pdf"):
 
-print("\nFirst page:\n")
+            pdf_path = os.path.join(
+                UPLOAD_FOLDER,
+                file
+            )
 
-print(docs[0].page_content[:500])
+            loader = PyPDFLoader(pdf_path)
+
+            file_docs = loader.load()
+
+            for doc in file_docs:
+                doc.metadata["source"] = file
+
+            docs.extend(file_docs)
+
+    print("Total Pages Loaded:", len(docs))
+
+    return docs
