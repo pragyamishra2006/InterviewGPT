@@ -201,15 +201,16 @@ The application will launch in your browser.
 
 ### Home Page
 
-> *(Add screenshot here)*
+<img width="920" height="408" alt="{472E9B0A-72FF-4560-A16C-3C9C28D41042}" src="https://github.com/user-attachments/assets/0a92cfb3-c475-4a47-a06c-4b4427f8b63a" />
+
 
 ### Upload Documents
 
-> *(Add screenshot here)*
+<img width="638" height="392" alt="{4A14C52D-2D5B-41F7-83A8-FF80D5E14D92}" src="https://github.com/user-attachments/assets/5aafdd5a-74c0-47dd-b49f-d8e24778da4a" />
 
 ### Chat Interface
 
-> *(Add screenshot here)*
+<img width="670" height="382" alt="{195C3CE6-9449-4675-AEDA-E156419AD285}" src="https://github.com/user-attachments/assets/68ca65b2-6703-40d1-8980-0c55d7c5df96" />
 
 ---
 
