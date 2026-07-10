@@ -1,46 +1,90 @@
-# 🤖 InterviewGPT
+# 🤖 InterviewGPT – AI-Powered Placement Preparation Assistant
 
-InterviewGPT is an AI-powered Placement Preparation Assistant built using Retrieval-Augmented Generation (RAG). It allows users to upload study materials and ask questions directly from their notes using a local Large Language Model.
+InterviewGPT is an AI-powered Placement Preparation Assistant built using **Retrieval-Augmented Generation (RAG)**. It enables users to upload placement preparation PDFs, perform semantic search over their study materials, and receive context-aware answers using a locally hosted Large Language Model (LLM).
+
+The application combines **document processing, vector embeddings, semantic retrieval, and local LLM inference** to provide accurate and relevant responses without relying on cloud-based AI services.
+
+---
 
 ## 🚀 Features
 
-* 📄 Upload PDF Notes
-* 🔍 Semantic Search using Vector Embeddings
-* 🤖 AI-Powered Question Answering
-* 📚 Context-Aware Responses
-* 💾 ChromaDB Vector Database
-* 🧠 Local LLM Inference with Ollama
-* 🌐 Interactive Streamlit Web Interface
+- 📄 Upload one or multiple PDF documents
+- 🔍 Semantic search using vector embeddings
+- 🤖 Context-aware AI question answering
+- 🧠 Retrieval-Augmented Generation (RAG) pipeline
+- 💾 Persistent vector storage with ChromaDB
+- 🦙 Local LLM inference using Ollama
+- 🌐 Interactive Streamlit web interface
+- ⚡ Fast document retrieval and response generation
+- 🔒 Fully local processing for enhanced privacy
 
-## 🛠 Tech Stack
+---
 
-* Python
-* Streamlit
-* LangChain
-* ChromaDB
-* Ollama
-* Hugging Face Embeddings
-* Sentence Transformers
+## 🏗️ System Architecture
+
+```
+                 PDF Upload
+                      │
+                      ▼
+             Text Extraction
+                      │
+                      ▼
+             Document Chunking
+                      │
+                      ▼
+         HuggingFace Embeddings
+                      │
+                      ▼
+          ChromaDB Vector Store
+                      │
+                      ▼
+           Semantic Retrieval
+                      │
+                      ▼
+              Ollama LLM
+                      │
+                      ▼
+        Context-Aware AI Response
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Language | Python |
+| Frontend | Streamlit |
+| LLM Framework | LangChain |
+| Vector Database | ChromaDB |
+| Embedding Model | Hugging Face Sentence Transformers |
+| Local LLM | Ollama |
+| Document Processing | PyPDF |
+
+---
 
 ## 📂 Project Structure
 
-```bash
+```text
 InterviewGPT/
 │
-├── app.py
-├── chroma_db/
-├── uploads/
+├── app.py                     # Streamlit application
+├── chroma_db/                 # Vector database
+├── uploads/                   # Uploaded PDF files
+│
 ├── src/
-│   ├── loader.py
-│   ├── chunker.py
-│   ├── vector_store.py
-│   ├── retriever.py
-│   ├── ingest.py
-│   └── chat.py
+│   ├── loader.py              # PDF loading
+│   ├── chunker.py             # Document chunking
+│   ├── vector_store.py        # ChromaDB integration
+│   ├── retriever.py           # Semantic retrieval
+│   ├── ingest.py              # Data ingestion pipeline
+│   └── chat.py                # LLM interaction
 │
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## ⚙️ Installation
 
@@ -51,18 +95,24 @@ git clone https://github.com/pragyamishra2006/InterviewGPT.git
 cd InterviewGPT
 ```
 
-### 2. Create Virtual Environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-### 3. Activate Virtual Environment
+### 3. Activate the Environment
 
-Windows:
+Windows
 
 ```bash
 .venv\Scripts\activate
+```
+
+Linux / macOS
+
+```bash
+source .venv/bin/activate
 ```
 
 ### 4. Install Dependencies
@@ -71,9 +121,15 @@ Windows:
 pip install -r requirements.txt
 ```
 
-## 🦙 Setup Ollama
+---
 
-Install Ollama and pull a model:
+## 🦙 Install Ollama
+
+Download Ollama from:
+
+https://ollama.com
+
+Pull a language model:
 
 ```bash
 ollama pull qwen2.5:1.5b
@@ -85,76 +141,129 @@ Verify installation:
 ollama list
 ```
 
-## 📚 Add Notes
+---
 
-Place your PDF notes inside the uploads folder or upload them through the web interface.
+## 📚 Add Your Documents
 
-Examples:
+Upload PDFs directly from the web interface or place them inside the `uploads/` directory.
 
-* DSA Notes
-* Operating Systems Notes
-* DBMS Notes
-* Computer Networks Notes
-* Interview Experiences
+Example documents:
 
-## 🔄 Create Vector Database
+- Data Structures & Algorithms
+- Operating Systems
+- DBMS
+- Computer Networks
+- Interview Experiences
+- Aptitude Notes
+
+---
+
+## 🔄 Build the Knowledge Base
+
+Run the ingestion pipeline:
 
 ```bash
 python src/ingest.py
 ```
 
-This will:
+This pipeline:
 
-* Load PDFs
-* Split documents into chunks
-* Generate embeddings
-* Store vectors in ChromaDB
+- Loads PDF documents
+- Extracts text
+- Splits text into semantic chunks
+- Generates vector embeddings
+- Stores embeddings in ChromaDB
+
+---
 
 ## ▶️ Run the Application
 
 ```bash
-python -m streamlit run app.py
+streamlit run app.py
 ```
 
-## 💬 Example Questions
-
-* What is Cyber Security?
-* Explain Deadlock in Operating Systems.
-* What are ACID Properties in DBMS?
-* Explain TCP vs UDP.
-* What is Binary Search?
-
-## 📸 Demo
-
-Upload your notes and ask questions in natural language. InterviewGPT retrieves relevant context from your documents and generates answers using a local LLM.
-
-## 🎯 Future Improvements
-
-* Mock Interview Mode
-* Interview Question Generator
-* Multi-PDF Knowledge Base
-* Chat History
-* Resume Analyzer
-* Placement Roadmap Generator
-
-## 🌟 Learning Outcomes
-
-This project helped me gain practical experience with:
-
-* Retrieval-Augmented Generation (RAG)
-* Vector Databases
-* Embeddings
-* LangChain
-* Local LLM Deployment
-* Streamlit Application Development
-
-## 👨‍💻 Author
-
-Pragya Mishra
-
-GitHub:
-https://github.com/pragyamishra2006
+The application will launch in your browser.
 
 ---
 
-⭐ If you found this project interesting, consider giving it a star.
+## 💬 Example Questions
+
+- Explain Binary Search.
+- What are ACID Properties?
+- Difference between TCP and UDP?
+- Explain Deadlock.
+- What is Process Synchronization?
+- What are Virtual Functions in C++?
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+> *(Add screenshot here)*
+
+### Upload Documents
+
+> *(Add screenshot here)*
+
+### Chat Interface
+
+> *(Add screenshot here)*
+
+---
+
+## 📌 Future Enhancements
+
+- 🎤 AI Mock Interview Mode
+- 📄 Resume Analyzer
+- 💼 Company-wise Interview Questions
+- 📈 Placement Progress Tracker
+- 💬 Chat History
+- 🌍 Multi-language Support
+- 📊 Analytics Dashboard
+- 🐳 Docker Deployment
+
+---
+
+## 🎯 Key Learnings
+
+This project helped me gain hands-on experience with:
+
+- Retrieval-Augmented Generation (RAG)
+- Large Language Models (LLMs)
+- Semantic Search
+- Vector Databases
+- Document Embeddings
+- LangChain Pipelines
+- Local AI Deployment
+- Streamlit Application Development
+
+---
+
+## 🤝 Contributing
+
+Contributions, feature requests, and suggestions are welcome.
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Pragya Mishra**
+
+- GitHub: https://github.com/pragyamishra2006
+
+---
+
+⭐ **If you found this project useful, please consider giving it a star!**
